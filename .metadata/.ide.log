@@ -282,3 +282,8 @@
 2021-12-07 14:16:11,095 [INFO] McuFinderGlobals:52 - Set McuFinderConnectedMode to true
 2021-12-07 14:16:11,099 [INFO] ApiDb:276 - Save user favorites file C:\Users\abdit/.stm32cubeide/favorites.mcus.txt: 0 item(s)
 2021-12-07 14:16:11,100 [INFO] ApiDb:280 - User favorites MCUs=[]
+2021-12-08 08:35:11,540 [INFO] Activator:177 - 
+
+
+2021-12-08 08:35:11,540 [INFO] Activator:178 - !SESSION log4j initialized
+2021-12-08 08:35:15,840 [ERROR] AnalyticsContext:980 - The ST intranet updater server is unknown: mcucrossselector.codex.cro.st.com
