@@ -4,17 +4,9 @@
  * @author         : Abdi Tujuba
  * @brief          : Main program body for led light toggel
  ******************************************************************************
- * @attention
- *
- * Copyright (c) 2021 STMicroelectronics.
- * All rights reserved.
- *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
- *
- ******************************************************************************
  */
+
+
 // Port/Pin  : pins are grouped in to port - each pin in port is addressed by pin number
 // Pin are accessed by Port+pin number
 

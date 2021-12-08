@@ -34,3 +34,24 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2021-12-08 10:13:15.569
 !MESSAGE Indexed '1_led_toggle_addr_struct' (3 sources, 53 headers) in 0.27 sec: 1,965 declarations; 2,855 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.041%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2021-12-08 11:32:50.414
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-08 15:35:32.650
+!MESSAGE Indexed '2_gpio_output' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-08 15:35:34.670
+!MESSAGE Indexed '2_gpio_output' (2 sources, 53 headers) in 0.213 sec: 1,962 declarations; 2,808 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-08 15:38:35.350
+!MESSAGE Indexed '2_gpio_output' (3 sources, 53 headers) in 0.205 sec: 1,964 declarations; 2,810 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-08 15:53:46.420
+!MESSAGE Indexed '2_gpio_output' (3 sources, 61 headers) in 0.628 sec: 3,332 declarations; 5,359 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-08 16:04:06.685
+!MESSAGE Indexed '2_gpio_bitSetReset' (3 sources, 62 headers) in 0.689 sec: 3,347 declarations; 5,427 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-08 16:18:41.613
+!MESSAGE Indexed '4_gpio_input' (3 sources, 62 headers) in 0.658 sec: 3,347 declarations; 5,427 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.023%)
