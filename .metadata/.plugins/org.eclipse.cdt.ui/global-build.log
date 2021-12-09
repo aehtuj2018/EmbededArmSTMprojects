@@ -1,23 +1,7 @@
-16:16:16 **** Build of configuration Debug for project 2_gpio_bitSetReset ****
+16:23:07 **** Incremental Build of configuration Debug for project 5_uart_tx ****
 make -j8 all 
-arm-none-eabi-gcc -o "2_gpio_bitSetReset.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\abdit\Desktop\Code Base\EmbededCplusPlus\STM-Code\2_gpio_bitSetReset\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_gpio_bitSetReset.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 2_gpio_bitSetReset.elf
- 
-arm-none-eabi-size   2_gpio_bitSetReset.elf 
-arm-none-eabi-objdump -h -S  2_gpio_bitSetReset.elf  > "2_gpio_bitSetReset.list"
-arm-none-eabi-objcopy  -O binary  2_gpio_bitSetReset.elf  "2_gpio_bitSetReset.bin"
+arm-none-eabi-size   5_uart_tx.elf 
    text	   data	    bss	    dec	    hex	filename
-    760	      8	   1568	   2336	    920	2_gpio_bitSetReset.elf
-Finished building: default.size.stdout
- 
-Finished building: 2_gpio_bitSetReset.bin
-Finished building: 2_gpio_bitSetReset.list
- 
- 
-16:16:34 **** Incremental Build of configuration Debug for project 2_gpio_bitSetReset ****
-make -j8 all 
-arm-none-eabi-size   2_gpio_bitSetReset.elf 
-   text	   data	    bss	    dec	    hex	filename
-    760	      8	   1568	   2336	    920	2_gpio_bitSetReset.elf
+   1040	      8	   1568	   2616	    a38	5_uart_tx.elf
 Finished building: default.size.stdout
  

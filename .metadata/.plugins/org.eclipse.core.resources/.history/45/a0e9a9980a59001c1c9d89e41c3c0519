@@ -1,0 +1,58 @@
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @author         : Abdi Tujuba
+ * @brief          : GPIO - using STM include file
+ ******************************************************************************
+ */
+
+#include "stm32f4xx.h"
+
+#define GPIOGEN  (1U<<6)
+#define GPIOBEN  (1U<<1)
+
+#define PIN13    (1U<<0)
+#define BTN_PIN  PIN13
+
+#define PIN14    (1U<<14)
+#define LED_PIN  PIN14
+
+int main (void)
+{
+
+	/* Enable clock register for LED - output and INpuit push button*/
+
+	RCC->AHB1ENR |= GPIOGEN;
+	RCC->AHB1ENR |= GPIOAEN;
+
+	/* Set PIN14 as output  */
+	GPIOG->MODER |= (1U<<28);
+	GPIOG->MODER &= ~ (1U<<29);
+
+	/* Set PC13 as input PIN */
+
+	GPIOB->MODER &= ~(1U<<0);
+	GPIOB->MODER &= ~(1U<<1);
+
+	while(1)
+	{
+		//GPIOG->ODR ^= LED_PIN;
+		//GPIOG->BSRR |=  LED_PIN;
+
+		/* Check if button is pressed*/
+
+		if (GPIOB->IDR & BTN_PIN )
+		{
+
+			GPIOG->BSRR |=(1U<<14); /* Sets the corresponding Bit 14 to high, Turn on LED */
+
+		}
+
+
+		else
+		{
+			GPIOG->BSRR |= (1U<<30); /* Sets the corresponding Bit 14 to low, Turn OFF LED */
+		}
+
+}
+

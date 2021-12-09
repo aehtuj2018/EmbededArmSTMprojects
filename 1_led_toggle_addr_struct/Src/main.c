@@ -101,7 +101,7 @@ int main(void)
 
 		/*4 : Toggle PIN13 */
 
-		GPIOG->ODR ^=LED_PIN13;
+		GPIOG->ODR ^=LED_PIN14;
 
 		for (int i=0 ; i< 150000; i++)
 		{

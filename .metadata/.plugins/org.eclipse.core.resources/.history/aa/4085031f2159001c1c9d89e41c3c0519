@@ -1,0 +1,59 @@
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @author         : Abdi Tujuba
+ * @brief          : GPIO - Driver
+ ******************************************************************************
+ */
+
+#include "stm32f4xx.h"
+
+
+#define UART2EN (1U<<17)
+
+#define GPIOAEN  (1U<<0)
+
+
+int main (void)
+{
+
+
+	while(1)
+	{
+
+	}
+}
+
+void uart_tx_init()
+{
+	/********************* Configure UART GPIO PINs ****************/
+
+	/* Enable clock Access to GPIOG*/
+
+	RCC->AHB1ENR |= GPIOAEN ;
+
+
+	/* Set PA2 mode to Alternate Function Mode*/
+
+	GPIOA->MODER |=(1U<<5);
+	GPIOA->MODER &= ~(1U<<4);
+
+
+	/*Set PA2 Alternate function type to UART_TX (AF07) */
+	// AFRL - index 0 , AFRH - index 1, USART2_TX function is AF07
+
+	GPIOA->AFR[0] |= (1U<<8);
+	GPIOA->AFR[0] |= (1U<<9);
+	GPIOA->AFR[0] |= (1U<<10);
+	GPIOA->AFR[0] &= ~(1U<<11);
+
+	/************ Configure UART  module *********************/
+
+	/* Enable clock access to UART2*/
+
+	RCC->APB1ENR |=
+
+	/* Configure baudrate */
+	/* Configure the transfer direction */
+	/*Enable uart module */
+}

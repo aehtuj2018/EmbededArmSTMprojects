@@ -55,3 +55,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2021-12-08 16:18:41.613
 !MESSAGE Indexed '4_gpio_input' (3 sources, 62 headers) in 0.658 sec: 3,347 declarations; 5,427 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-09 10:02:46.841
+!MESSAGE Indexed '5_uart_tx' (3 sources, 62 headers) in 0.918 sec: 3,347 declarations; 5,427 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.023%)
