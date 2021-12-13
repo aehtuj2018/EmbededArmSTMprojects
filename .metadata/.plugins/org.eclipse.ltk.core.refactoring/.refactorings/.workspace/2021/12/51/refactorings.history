@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;9_adc&apos; to &apos;9_adc_single_conversion&apos;" description="Rename resource &apos;9_adc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/9_adc" name="9_adc_single_conversion" stamp="1639421605427" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;9_adc_continous_conversion&apos; to &apos;10_adc_continous_conversion&apos;" description="Rename resource &apos;9_adc_continous_conversion&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/9_adc_continous_conversion" name="10_adc_continous_conversion" stamp="1639431475325" updateReferences="true"/>
+</session>
