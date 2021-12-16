@@ -1,0 +1,65 @@
+#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+#endif
+
+#include "stm32f4xx.h"
+
+//	UART1 is used. Sits on APB2 bus
+//	GPIOA sits on AHB1 bus. USART1 is AF7 for PA9 and PA10
+//	PA9:	USART1_TX
+//	PA10:	USART1_RX
+//	Baudrate: 9600
+
+void funcGPIOInit();
+void funcUARTInit();
+void funcUARTSend();
+
+int main(void)
+{
+	funcGPIOInit();
+	funcUARTInit();
+	funcUARTSend();
+	for(;;)
+	{
+
+	}
+}
+
+void funcGPIOInit()
+{
+	// Enable AHB1 bus. Set PA9 and PA10 to AF,
+	RCC->AHB1ENR |= (1<<RCC_AHB1ENR_GPIOAEN_Pos);
+	GPIOA->MODER |= (2<<GPIO_MODER_MODER9_Pos);
+	GPIOA->MODER |= (2<<GPIO_MODER_MODER10_Pos);
+	GPIOA->OTYPER &= ~(1<<GPIO_OTYPER_OT9_Pos);
+	GPIOA->OTYPER &= ~(1<<GPIO_OTYPER_OT10_Pos);
+	GPIOA->OSPEEDR &= ~(3<<GPIO_OSPEEDR_OSPEED9_Pos);
+	GPIOA->OSPEEDR &= ~(3<<GPIO_OSPEEDR_OSPEED10_Pos);
+	GPIOA->PUPDR &= ~(3<<GPIO_PUPDR_PUPD9_Pos);
+	GPIOA->PUPDR &= ~(3<<GPIO_PUPDR_PUPD10_Pos);
+	GPIOA->AFR[1] |= (7<<GPIO_AFRH_AFSEL9_Pos);
+	GPIOA->AFR[1] |= (7<<GPIO_AFRH_AFSEL10_Pos);
+}
+
+void funcUARTInit()
+{
+	// Enable APB2 bus.
+	RCC->APB2ENR |= (1<<RCC_APB2ENR_USART1EN_Pos);
+	// TxTxBaud = 9600. fck=16MHz. Oversampling by 8: USARTDIV=16MHz/(8*9600)=208.3333.
+	// Mantissa = 208. Fraction = 0.33
+	// 0.3333*8=2.667 = 3
+	// 208dec = 0xD0
+	USART1->BRR = 0xD03;
+	USART1->CR1 |= (1<<USART_CR1_TE_Pos);	// Transmitter enable
+	USART1->CR1 &= ~(1<<USART_CR1_PCE_Pos);	// Parity control disabled
+	USART1->CR1 &= ~(1<<USART_CR1_M_Pos);	// 8bit word length
+	USART1->CR1 |= (1<<USART_CR1_OVER8_Pos);	// Oversampling by 8
+	USART1->CR2 &= ~(3<<USART_CR2_STOP_Pos);	// 1 stop bit
+
+	USART1->CR1 |= (1<<USART_CR1_UE_Pos);	// Enable UART1
+}
+
+void funcUARTSend()
+{
+	USART1->DR = 120;
+}

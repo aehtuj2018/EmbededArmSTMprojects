@@ -202,3 +202,83 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-12-13 16:01:22.858
 !MESSAGE Existing sessions are:
+!SESSION 2021-12-14 09:08:35.650 -----------------------------------------------
+eclipse.buildId=Version 1.8.0
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-12-14 09:08:46.316
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-12-14 09:08:46.384
+!MESSAGE Log4j initialized with config file C:\Users\abdit\Desktop\Code Base\EmbededCplusPlus\STM-Code\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-12-14 09:08:53.037
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-14 10:38:32.441
+!MESSAGE Indexed '5_uart1_tx2' (3 sources, 62 headers) in 0.966 sec: 3,366 declarations; 5,519 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.023%)
+!SESSION 2021-12-14 12:59:36.577 -----------------------------------------------
+eclipse.buildId=Version 1.8.0
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2021-12-14 12:59:41.881
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-12-14 12:59:48.471
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-12-14 12:59:48.541
+!MESSAGE Log4j initialized with config file C:\Users\abdit\Desktop\Code Base\EmbededCplusPlus\STM-Code\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-12-14 12:59:56.362
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2021-12-15 08:54:52.223 -----------------------------------------------
+eclipse.buildId=Version 1.8.0
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-12-15 08:55:05.201
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-12-15 08:55:05.268
+!MESSAGE Log4j initialized with config file C:\Users\abdit\Desktop\Code Base\EmbededCplusPlus\STM-Code\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-12-15 08:55:12.719
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-15 11:34:08.211
+!MESSAGE Indexed '12_Timers' (5 sources, 66 headers) in 1.11 sec: 3,511 declarations; 5,672 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.022%)
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-12-15 12:11:46.548
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: File: C:\Users\abdit\Desktop\Code Base\EmbededCplusPlus\STM-Code\12_Timers\Debug\12_Timers.elfdo not exists
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:56)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:84)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:914)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$15(StackAnalyzerView.java:1256)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-15 13:31:21.823
+!MESSAGE Indexed '13_OutputCompare' (6 sources, 67 headers) in 0.971 sec: 3,515 declarations; 5,718 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.022%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-12-15 14:27:52.760
+!MESSAGE Indexed '14_InputCapture' (6 sources, 67 headers) in 0.822 sec: 3,519 declarations; 5,748 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.022%)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 10004 2021-12-15 16:04:15.071
+!MESSAGE Failed to execute MI command:
+-stack-list-frames 0 0
+Error message from debugger back end:
+Invalid thread id: 1
+!STACK 0
+java.lang.Exception: Invalid thread id: 1
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1014)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:843)

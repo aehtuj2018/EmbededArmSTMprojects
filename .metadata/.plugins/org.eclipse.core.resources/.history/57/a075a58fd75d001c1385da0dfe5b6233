@@ -1,0 +1,23 @@
+/*
+ * tim.c
+ *
+ *  Created on: Dec. 15, 2021
+ *      Author: abdit
+ */
+
+
+#include "stm32f4xx.h"
+
+/**/
+void tim2_1hz_init(void)
+{
+	/* Enable clock access to Timer2*/
+
+	/*Set prescaler value*/
+
+	/*set auto-reload value */
+
+	/*Clear Counter*/
+
+	/*Enable Timer */
+}
