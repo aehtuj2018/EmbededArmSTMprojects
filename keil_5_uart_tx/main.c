@@ -16,12 +16,19 @@
 
 #define GPIOAEN								(1U<<0)
 #define UART2EN 							(1U<<17)
+
 #define SYS_FREQ 							16000000
 #define APB2_CLK							SYS_FREQ
 #define UART_BAUD_RATE 				115200
 
-void uart2_tx_init(); 
-static void uart_set_baudrate(USART_TypeDef , uint32_t  , uint32_t );
+#define CR1_UE								(1U<<13)
+#define CR1_TE								(1U<<3) 
+#define SR_TXE									(1U<<7)
+
+void uart2_tx_init(void); 
+static void uart_set_baudrate(USART_TypeDef *, uint32_t  , uint32_t );
+static uint16_t compute_uart_bd(uint32_t  , uint32_t ); 
+void uart1_write(int ch);
 
 int main (void)
 {
@@ -30,7 +37,7 @@ int main (void)
 
 	while(1)
 	{
-		//uart1_write('A');
+		uart1_write('A');
 
 	}
 }
@@ -55,7 +62,6 @@ void uart2_tx_init()
 	GPIOA->AFR[0] |= (1U<<10);
 	GPIOA->AFR[0] |= (1U<<9);
 	GPIOA->AFR[0] |= (1U<<8); 
-
 	
 	/************ Configure UART  module *********************/
 
@@ -66,14 +72,15 @@ void uart2_tx_init()
 
 	/* Configure baudrate */
 
-	uart_set_baudrate(UART2,APB2_CLK,UART_BAUD_RATE);
+	uart_set_baudrate(USART2,APB2_CLK,UART_BAUD_RATE);
 
 	/* Configure the transfer direction */
 
-	
+	USART2->CR1 |= CR1_TE;
 
 	/*Enable uart module */
 
+	USART2->CR1 |= CR1_UE; 
 	
 }
 
@@ -83,19 +90,19 @@ void uart1_write(int ch)
 {
 	/* Make sure the transmit data is empty */
 
-	while ()
-	{};
-
+	while (!(USART2->SR & SR_TXE))
+	{}
+		
 	/* Write to transmit data register */
 
-	
+	USART2->DR = (ch & 0xFF);
 
 
 }
-static void uart_set_baudrate(USART_TypeDef *UARTx, uint32_t  periphClk, uint32_t BaudRate )
+static void uart_set_baudrate(USART_TypeDef *USARTTx, uint32_t  periphClk, uint32_t BaudRate )
 {
 	//UARTx->BRR = compute_uart_bd(periphClk,BaudRate);
- 
+ USARTTx->BRR = compute_uart_bd(periphClk,BaudRate); 
 
 
 }
@@ -103,7 +110,7 @@ static void uart_set_baudrate(USART_TypeDef *UARTx, uint32_t  periphClk, uint32_
 static uint16_t compute_uart_bd(uint32_t  periphClk, uint32_t BaudRate)
 {
 
-	return ((periphClk + (BaudRate/2U))/BaudRate);
+	return (uint16_t) ((periphClk + (BaudRate/2U))/BaudRate);
 }
 
 
