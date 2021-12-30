@@ -26,10 +26,10 @@ int main (void)
 
 	while(1)
 	{
-		//uart2_write('A');
-		//printf("Hello from STM32 F4 ..... \n\r"); 
+
 		key = uart2_read();
-		//uart2_write(key);
+//  printf(" \n 2%c" , key); // Eco back the character by appending 2 
+		// 'o' - Turn ON LED2 , 'f' - Turn OFF LED2 
 		if(key=='o')
 		{
 			TURN_LED_ON(); 

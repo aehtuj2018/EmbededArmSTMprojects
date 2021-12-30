@@ -34,7 +34,7 @@ void uart2_write(int ch);
 void uart2_rxtx_init(void);
 char uart2_read(void);
 	
-/*FILE __stdout;
+FILE __stdout;
 FILE __stdin;
 
 
@@ -42,7 +42,7 @@ int fputc(int ch , FILE * stream)
 {
 	uart2_write(ch);
 	return ch;  //return the character written to denote a successfull write
-}*/
+}
 void uart2_rxtx_init()
 {
 	/********************* Configure UART GPIO PINs ****************/
@@ -117,7 +117,6 @@ void uart2_write(int ch)
 	/* Write to transmit data register */
 
 	USART2->DR = (ch & 0xFF);
-
 
 }
 static void uart_set_baudrate(USART_TypeDef *USARTTx, uint32_t  periphClk, uint32_t BaudRate )
