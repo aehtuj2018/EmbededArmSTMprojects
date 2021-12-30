@@ -30,11 +30,11 @@ int main (void)
 		key = uart2_read();
 //  printf(" \n 2%c" , key); // Eco back the character by appending 2 
 		// 'o' - Turn ON LED2 , 'f' - Turn OFF LED2 
-		if(key=='o')
+		if(key=='o' || key =='O')
 		{
 			TURN_LED_ON(); 
 		}
-		if (key =='f')
+		if (key =='f' || key =='F')
 		{
 			TURN_LED_OFF();
 		}
