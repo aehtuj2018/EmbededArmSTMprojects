@@ -29,13 +29,30 @@ void uart2_tx_init(void);
 static void uart_set_baudrate(USART_TypeDef *, uint32_t  , uint32_t );
 static uint16_t compute_uart_bd(uint32_t  , uint32_t ); 
 void uart2_write(int ch);
-int __io_putchar(int ch);
+
+//int __io_putchar(int ch);
 
 
-int __io_putchar(int ch)
+/*int __io_putchar(int ch)
+{
+	
+}*/
+
+
+
+/*struct __FILE
+{
+  int dummyVar; //Just for the sake of redefining __FILE, we won't we using it anyways ;)
+};
+*/
+FILE __stdout;
+FILE __stdin;
+
+
+int fputc(int ch , FILE * stream)
 {
 	uart2_write(ch);
-	return ch; 
+	return ch;  //return the character written to denote a successfull write
 }
 
 
