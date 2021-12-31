@@ -9,6 +9,7 @@
  *	@email		abdi.tujuba.86@gmail.com
  *	@ide			Keil uVision 5
  *	@packs		STM32F4xx Keil packs version 2.2.0 or greater required
+ *  @project 	Retarget printf (stdio library) for UART TX
  */
  
 #include <stdio.h>
@@ -30,21 +31,7 @@ static void uart_set_baudrate(USART_TypeDef *, uint32_t  , uint32_t );
 static uint16_t compute_uart_bd(uint32_t  , uint32_t ); 
 void uart2_write(int ch);
 
-//int __io_putchar(int ch);
 
-
-/*int __io_putchar(int ch)
-{
-	
-}*/
-
-
-
-/*struct __FILE
-{
-  int dummyVar; //Just for the sake of redefining __FILE, we won't we using it anyways ;)
-};
-*/
 FILE __stdout;
 FILE __stdin;
 

@@ -1,3 +1,0 @@
-tim.c:26:6:tim2_1hz_init	4	static
-tim.c:49:6:tim2_pa5__Output_compare	4	static
-tim.c:96:6:tim3_pa6_input__capture	4	static

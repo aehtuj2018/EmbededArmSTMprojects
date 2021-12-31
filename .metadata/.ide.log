@@ -606,3 +606,8 @@
 
 2021-12-24 08:53:06,883 [INFO] Activator:178 - !SESSION log4j initialized
 2021-12-24 08:53:12,720 [ERROR] AnalyticsContext:980 - The ST intranet updater server is unknown: mcucrossselector.codex.cro.st.com
+2021-12-31 13:57:50,297 [INFO] Activator:177 - 
+
+
+2021-12-31 13:57:50,300 [INFO] Activator:178 - !SESSION log4j initialized
+2021-12-31 13:57:58,443 [ERROR] AnalyticsContext:980 - The ST intranet updater server is unknown: mcucrossselector.codex.cro.st.com
