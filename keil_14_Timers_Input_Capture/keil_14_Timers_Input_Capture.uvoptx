@@ -22,7 +22,7 @@
   </DaveTm>
 
   <Target>
-    <TargetName>keil_12_Timers</TargetName>
+    <TargetName>keil_14_Timers_Input_Capture</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
     <ToolsetName>ARM-ADS</ToolsetName>
     <TargetOption>
