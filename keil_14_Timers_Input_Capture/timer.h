@@ -13,9 +13,11 @@
 
 #ifndef TIMER_H_
 #define TIMER_H_
+#include <stdint.h>
 void tim2_1hz_init(void);
 void tim2_PA5_output_compare(void);
 void tim3_PA6_input_capture(void);
+extern uint32_t time_stamp;
 
 #define SR_UIF  			(1U<<0)
 #define SR_CC1IF 			(1U<<0)
