@@ -15,6 +15,9 @@
 #define TIMER_H_
 void tim2_1hz_init(void);
 void tim2_PA5_output_compare(void);
-#define SR_UIF  (1U<<0)
+void tim3_PA6_input_capture(void);
+
+#define SR_UIF  			(1U<<0)
+#define SR_CC1IF 			(1U<<0)
 
 #endif /* TIM_H_*/
