@@ -13,10 +13,12 @@
 
 
 #include "stm32f4xx.h"                  // Device header
+#include <stdint.h>
 #include "timer.h"
 uint32_t time_stamp = 0;
 
 /* HW setup : connect a jumper wire from PA5 to PA6 */
+
 int main(void)
 	
 {

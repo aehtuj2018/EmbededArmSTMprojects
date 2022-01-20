@@ -50,9 +50,10 @@ void tim2_PA5_output_compare(void)
 	/*2. Set PA5 as Alternate Function*/
 	GPIOA->MODER |= (1U<<11);
 	GPIOA->MODER &= ~(1U<<10); 
+	
 	/*Set PA5 Alternate Function Type  (AF01)*/
 	
-	GPIOA->AFR[0]|= AFR6_TIM;
+	GPIOA->AFR[0]|= AFR5_TIM;
 	
 	
 	/* Enable clock access to Timer 2 */
