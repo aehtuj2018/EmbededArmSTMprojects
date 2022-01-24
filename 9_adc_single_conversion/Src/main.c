@@ -3,6 +3,7 @@
  * @file           : main.c
  * @author         : Abdi Tujuba
  * @brief          : ADC Single Conversion
+ * Board 		   :  Discovery Board
  ******************************************************************************
  */
 
