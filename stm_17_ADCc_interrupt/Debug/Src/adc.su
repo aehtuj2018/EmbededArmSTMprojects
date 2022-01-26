@@ -1,5 +1,0 @@
-core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
-adc.c:22:6:pal_adc_interrupt_init	8	static
-adc.c:67:6:pal_adc_init	4	static
-adc.c:100:6:start_conversion	4	static
-adc.c:109:10:adc_read	4	static
