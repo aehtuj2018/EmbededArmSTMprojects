@@ -42,20 +42,6 @@ static void dma_uart_callback(void)
 	GPIOA->ODR |= LED_PIN;
 }
 
-/*void USART2_IRQHandler()
-{
-	
-	// check if RXNE is set 
-	
-	if(USART2->SR & SR_RXNE)
-	{
-		// Do something 
-		
-		uart_callback();
-		
-	}
-	
-}*/
 
 void DMA1_Stream6_IRQHandler(void)
 {
