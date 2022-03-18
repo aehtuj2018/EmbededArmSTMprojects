@@ -21,19 +21,22 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\CodeLib\ARM-Cortex4-STMF4\EmbededArmSTMprojects\State Machine and Data Structure\keil_Struct_ADT\keil_Struct_ADT.uvprojx
+C:\CodeLib\ARM-Cortex4-STMF4\EmbededArmSTMprojects\State Machine and Data Structure\keil_union_ADT\keil_Struct_ADT.uvprojx
 Project File Date:  03/14/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Cortex-M'
-assembling startup_stm32f446xx.s...
-compiling system_stm32f4xx.c...
 main.c(17): warning: padding struct 'struct shape' with 3 bytes to align 'x_coord' [-Wpadded]
                                 int32_t x_coord;
                                         ^
-1 warning generated.
+main.c(52): warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                for(int i=0; i < (sizeof(shapes)/sizeof(shapes[0])); i++)
+                             ~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
 compiling main.c...
+assembling startup_stm32f446xx.s...
+compiling system_stm32f4xx.c...
 uart.c(33): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 GPIOA->MODER &=~0x00F0; // Disable first 
                              ~~^~~~~~~
@@ -61,8 +64,8 @@ uart.c(97): note: declare 'static' if the variable is not intended to be used ou
 6 warnings generated.
 compiling uart.c...
 linking...
-Program Size: Code=1566 RO-data=530 RW-data=0 ZI-data=1720  
-".\Objects\keil-array.axf" - 0 Error(s), 7 Warning(s).
+Program Size: Code=1484 RO-data=596 RW-data=0 ZI-data=1720  
+".\Objects\keil-array.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -88,9 +91,9 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.6.3
+      Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
-      Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f446xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
 Build Time Elapsed:  00:00:00

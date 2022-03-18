@@ -9,80 +9,72 @@
 #include <stdio.h>
 #include "uart.h"
 #include <stdint.h>
+#include <stdlib.h>
 
 
+struct shape {
+				uint8_t type;
+				int32_t x_coord;
+				int32_t y_coord; 
+};
 
-uint32_t sig[] = {23, 567, 0, 12, 144, 134, 13, 4};
-uint32_t output[4] ; 
+typedef struct shape shapeType;
 
-void array_2_max(uint32_t *, uint32_t *, uint32_t );
-
-void dsplay_array(uint32_t *, uint32_t );
-
+/* 1 = Rectangle 
+	 2 = Square 
+	 3 = Circle 
+	 4 = triangle
+*/
 
 int main(void)
 {
 	USART2_Init();
-	//dsplay_array(sig,8);
-	array_2_max(sig,output,8 ); 
-
-	printf("From main \n\r"); 
-	dsplay_array(output,4); 
 	
-	return 0; 
+	/* Type 1 Initialization */
+	
+	shapeType button = {1,5,-2};
+	
+	printf("The button Type is %d \r\n", button.type); 
+	printf("The button cord is (x,y) = (%d,%d)",button.x_coord,button.y_coord); 
+
+	
+	/* Type 2 Initialization */ 
+	button.type = 2;
+	button.x_coord = 10;
+	button.y_coord = 12; 
+
+	printf("\r\nThe button Type is %d \r\n", button.type); 
+	printf("The button cord is (x,y) = (%d,%d)",button.x_coord,button.y_coord); 
+	
+	shapeType panel; 
+	
+	shapeType *pnl; 
+	pnl= &panel;
+	
+	pnl->type = 4;
+	pnl->x_coord = -35;
+	pnl->y_coord = -70; 
+	
+	printf("\r\nThe Panel Type is %d \r\n", panel.type); 
+	printf("The button cord is (x,y) = (%d,%d)",panel.x_coord,panel.y_coord); 
+	
+	printf("\r\nThe Panel Type is %d \r\n", (pnl->type)); 
+	printf("The button cord is (x,y) = (%d,%d)",(pnl->x_coord),(pnl->y_coord)); 
+
+	/* Dynamic memory Allocation - structure  */
+			shapeType *sq;
+			sq = (shapeType *)malloc(sizeof(shapeType));
+
+			sq->type = 1;
+			sq->x_coord = -500;
+			sq->y_coord = -500; 
+			
+	printf("\r\nThe Panel Type is %d \r\n", (sq->type)); 
+	printf("The button cord is (x,y) = (%d,%d)",(sq->x_coord),(sq->y_coord));
+	
+	while(1)
+	{}
+	
+	//return 0; 
 }
 
-void dsplay_array(uint32_t *src_array, uint32_t src_len)
-{
-	for(int i = 0; i < src_len; i++)
-	printf(" src_array [ %d] =  %d\n\r", i, src_array[i]); 
-}
-
-
-void array_2_max(uint32_t *src_array, uint32_t *dest_array, uint32_t src_len)
-{
-	 
-	uint32_t max1 = 0;
-	uint32_t max2 = 0;
-	uint32_t max1_idx = 0;
-	uint32_t max2_idx = 0;
-	
-	// dsplay_array(src_array,8);
-	
-	max1 = src_array[0];
-	
-	for (int i=0; i < src_len; i++)
-	{
-		if(src_array[i] >  max1)
-		{
-			max1=src_array[i];
-			max1_idx = i; 
-		}
-}
-	
-max2 = src_array[0];
-
-for (int i=0; i < src_len; i++)
-{
-	/* Skip the largest value */
-	
-	if(src_array[i] != max1)
-	{		
-		if(src_array[i] >  max2)
-		{
-			max2=src_array[i];
-			max2_idx = i; 
-		}
-	}
-		
-}
-
-dest_array[0] = max1;
-dest_array[1] = max1_idx;
-dest_array[2] = max2;
-dest_array[3] = max2_idx; 
-	
-printf("Output Array \n\r"); 
-	dsplay_array(dest_array,4);
-__NOP(); 
-}
