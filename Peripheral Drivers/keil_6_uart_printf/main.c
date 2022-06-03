@@ -49,7 +49,7 @@ int main (void)
 
 	uart2_tx_init();
 
-	while(1)
+ 	while(1)
 	{
 		//uart2_write('A');
 		printf("Hello from STM32 F4 ..... \n\r"); 

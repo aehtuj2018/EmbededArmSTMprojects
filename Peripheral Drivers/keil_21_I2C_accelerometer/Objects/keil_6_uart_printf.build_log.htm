@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.36.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Abdi Tujuba, Home, LIC=----
+License Information: Abdi A2012521, Own, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.36.0.0
@@ -21,51 +21,34 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\Users\abdi_\Documents\CodeLib\EmbeddedARM\EmbededArmSTMprojects\keil_21_I2C_accelerometer\keil_21_I2C_accelerometer.uvprojx
-Project File Date:  02/10/2022
+C:\CodeLib\ARM-Cortex4-STMF4\EmbededArmSTMprojects\Peripheral Drivers\keil_21_I2C_accelerometer\keil_21_I2C_accelerometer.uvprojx
+Project File Date:  05/26/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'keil_21_I2C_accelerometer'
 assembling startup_stm32f446xx.s...
-compiling system_stm32f4xx.c...
 main.c(19): warning: In file included from...
-./adxl345.h(20): warning: no newline at end of file [-Wnewline-eof]
-void adxl_read_address(uint8_t reg);
-                                    ^
-main.c(37): warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wimplicit-float-conversion]
-                xg = (float) x * FOUR_G_SCALE_FACT; 
-                   ~ ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
-main.c(37): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
-                xg = (float) x * FOUR_G_SCALE_FACT; 
-                     ^~~~~~~~~ ~
-3 warnings generated.
+./mpu6050.h(45): warning: no newline at end of file [-Wnewline-eof]
+void check_device(uint16_t sadd);
+                                 ^
+1 warning generated.
 compiling main.c...
 compiling gpio.c...
-adxl345.c(1): warning: In file included from...
-./adxl345.h(20): warning: no newline at end of file [-Wnewline-eof]
-void adxl_read_address(uint8_t reg);
-                                    ^
-adxl345.c(16): warning: incompatible pointer types passing 'char **' to parameter of type 'char *'; remove & [-Wincompatible-pointer-types]
-        I2C1_byteRead(DEVICE_ADDR,reg,&data);
-                                      ^~~~~
-./i2c.h(16): note: passing argument to parameter 'data' here
-void I2C1_byteRead (char sadd, char maddr, char* data);
-                                                 ^
-adxl345.c(10): warning: no previous extern declaration for non-static variable 'data' [-Wmissing-variable-declarations]
-char* data;
-      ^
-adxl345.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-char* data;
-^
-adxl345.c(12): warning: no previous extern declaration for non-static variable 'data_rec' [-Wmissing-variable-declarations]
-uint8_t data_rec[24]; 
-        ^
-adxl345.c(12): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t data_rec[24]; 
-^
-4 warnings generated.
-compiling adxl345.c...
+mpu_6050.c(13): warning: In file included from...
+./mpu6050.h(45): warning: no newline at end of file [-Wnewline-eof]
+void check_device(uint16_t sadd);
+                                 ^
+mpu_6050.c(47): warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
+                printf("Device Found %x\r\n", data      ); 
+                ^
+mpu_6050.c(47): note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+mpu_6050.c(79): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+3 warnings generated.
+compiling mpu_6050.c...
+compiling system_stm32f4xx.c...
 uart.c(50): warning: unused parameter 'stream' [-Wunused-parameter]
 int fputc(int ch , FILE * stream)
                           ^
@@ -73,8 +56,8 @@ int fputc(int ch , FILE * stream)
 compiling uart.c...
 compiling i2c.c...
 linking...
-Program Size: Code=1268 RO-data=468 RW-data=0 ZI-data=1664  
-".\Objects\keil_6_uart_printf.axf" - 0 Error(s), 8 Warning(s).
+Program Size: Code=1952 RO-data=508 RW-data=0 ZI-data=1728  
+".\Objects\keil_6_uart_printf.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -85,15 +68,15 @@ Package Vendor: ARM
    * Component: CORE Version: 5.5.0
 
 Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.15.0.pack
-                Keil.STM32F4xx_DFP.2.15.0
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
+                Keil.STM32F4xx_DFP.2.16.0
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
    * Component: Startup Version: 2.6.3
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_keil_21_I2C_accelerometer
-  C:\Users\abdi_\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  C:\Users\abdi_\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  C:\Users\A2012521\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\A2012521\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -101,11 +84,11 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:2.6.3
       Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
-      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f446xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
