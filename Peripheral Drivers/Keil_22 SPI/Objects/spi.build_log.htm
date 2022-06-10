@@ -17,38 +17,27 @@ Library Manager: ArmAr.exe V6.16
 Hex Converter:   FromElf.exe V6.16
 CPU DLL:         SARMCM3.DLL V5.36.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      UL2CM3.DLL V1.164.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 C:\CodeLib\ARM-Cortex4-STMF4\EmbededArmSTMprojects\Peripheral Drivers\Keil_22 SPI\spi.uvprojx
-Project File Date:  06/02/2022
+Project File Date:  06/09/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'stm32f446-spi'
 assembling startup_stm32f446xx.s...
-compiling main.c...
-adxl345.c(8): warning: unused parameter 'reg' [-Wunused-parameter]
-void adxl_read_address(uint8_t reg)
-                               ^
-adxl345.c(13): warning: unused parameter 'reg' [-Wunused-parameter]
-void adxl_write_address(uint8_t reg, char value)
-                                ^
-adxl345.c(13): warning: unused parameter 'value' [-Wunused-parameter]
-void adxl_write_address(uint8_t reg, char value)
-                                          ^
-adxl345.c(18): warning: unused parameter 'reg' [-Wunused-parameter]
-void adxl_read_values(uint8_t reg)
-                              ^
-adxl345.c(5): warning: unused variable 'data' [-Wunused-variable]
-static char data;
-            ^
-adxl345.c(6): warning: unused variable 'data_rec' [-Wunused-variable]
-static uint8_t data_rec[6];
-               ^
-6 warnings generated.
 compiling adxl345.c...
+main.c(18): warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
+        printf(" Value to read address\n\r"); 
+        ^
+main.c(18): note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+main.c(36): warning: 'return' will never be executed [-Wunreachable-code-return]
+        return 0; 
+               ^
+2 warnings generated.
+compiling main.c...
 compiling system_stm32f4xx.c...
 uart.c(32): warning: unused parameter 'stream' [-Wunused-parameter]
 int fputc(int ch , FILE * stream)
@@ -61,8 +50,8 @@ spi.c(165): warning: implicit conversion loses integer precision: 'volatile uint
 1 warning generated.
 compiling spi.c...
 linking...
-Program Size: Code=372 RO-data=468 RW-data=0 ZI-data=1632  
-".\Objects\spi.axf" - 0 Error(s), 8 Warning(s).
+Program Size: Code=6012 RO-data=644 RW-data=0 ZI-data=1744  
+".\Objects\spi.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -88,9 +77,9 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
-      Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f446xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
 Build Time Elapsed:  00:00:00

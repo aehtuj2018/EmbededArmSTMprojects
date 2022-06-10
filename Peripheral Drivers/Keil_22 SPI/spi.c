@@ -22,10 +22,10 @@
 void spi_gpio_init()
 {
 
-	//PA9 - SPI1_NSS	can use any line , example uses PA9, connected to  CS-MPU
-	//PA7 - SPI1_SCK  connected to MPU6050 - SCL 
-	//PA6 - SPI1_MISO - connected to SDI 
-	//PA7 - SPI_MOSI - COnnected to SDO
+	//PA9 - (CS) SPI1_NSS	can use any line , example uses PA9, connected to  CS-MPU
+	//PA7 - (SDA) - SPI_MOSI  
+	//PA6 - (SDO) - MISO SPI1_MISO 
+	//PA5 - (CLK) - SCL
 	
 	/* Enable clock access  to GPIOA */
 		
