@@ -9,6 +9,8 @@
 #include "uart.h"
 #include "stdio.h"
 #include "mbprocess.h"
+#include "timer.h"
+
 
 static  unsigned char MY_SLAVE_ID;
 
@@ -72,29 +74,42 @@ int main (void)
 
 void USART2_IRQHandler()
 {	
-	/* check if RXNE is set */
 	
+	/* Disable Timer 6 and 7*/
+	TIM6->CR1 &= ~ CR1_CEN; 
+	TIM7->CR1 &= ~ CR1_CEN;
+	
+	/* clear counter values */
+	TIM6->CNT = 0;
+	TIM7->CNT = 0; 
+	
+	/* check if RXNE is set */
 	if(USART2->SR & SR_RXNE)
 	{	
 		
 		data_in[DataPos] = (char) USART2->DR;
 		DataPos+=1; 
-		/* Read data*/ 
-		//uart_callback();
+
 	}
-	
- //check if we are here because of TXEIE interrupt
- /*if (USART1->SR & USART_SR_TXE) //if RX is not empty
- {
-  //handle transmit completion here
- }*/
 	
 }
 
-/*static void uart_callback()
+void TIM6_IRQHandler (void)
 {
-	data = (char) USART2->DR;
+	/* Clear update interrupt flag */
+	TIM6->SR &= ~SR_UIF;
+
+	//Do something 
 	
-	printf("char is %c\r\n",data); 
+		tim2_callback();	
+}
+
+void TIM7_IRQHandler (void)
+{
+	/* Clear update interrupt flag */
+	TIM7->SR &= ~SR_UIF;
+
+	//Do something 
 	
-}*/
+		tim2_callback();	
+}
