@@ -16,30 +16,36 @@
 #include "stm32f4xx.h"                  // Device header
 #include "uart.h"
 #include "gpio.h"
-#include "mpu6050.h"
+#include "adxl345.h"
 
-static int16_t x; //,y,z;
-//static float xg;// , yg, zg;
+static int16_t x,y,z;
+static float xg, yg, zg;
 extern uint8_t data_rec[6];
 int main (void)
 {
 
+	adxl_init();
 	uart2_tx_init(); 
-	mpu6050_init(); 
+
+	printf("Start Printf\n\r"); 
+	
 
 	while(1)
 	{
 		
-		printf("Printf is good\n\r"); 
+		adxl_read_values(DATA_START_ADDR);  
 		
-		//check_device(MPU_SLAVE_ADDR);
 		
-		mpu6050_read_values(GYRO_XOUT_H);
 		x = (int16_t) ((data_rec[1]<<8)| data_rec[0]); 
-		//y = ((data_rec[3]<<8)| data_rec[2]);
-		//z = ((data_rec[5]<<8)| data_rec[4]);
+		y = (int16_t) ((data_rec[3]<<8)| data_rec[2]);
+		z = (int16_t) ((data_rec[5]<<8)| data_rec[4]);
 		
-		//xg = (float) x * FOUR_G_SCALE_FACT; 
+		xg = (float)(x * 0.0078); 
+		yg = (float)(y * 0.0078);
+		zg = (float)(z * 0.0078);
+		
+		printf("XG = %f , YG = %f , ZG = %f \n\r", xg,yg,zg);
 	}
 }
+
 

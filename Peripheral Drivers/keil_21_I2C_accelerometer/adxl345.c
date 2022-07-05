@@ -7,9 +7,9 @@ void adxl_write(uint8_t reg , char value);
 void adxl_read_values(uint8_t reg);
 void adxl_init (void);
 
-char* data;
+static char* data;
 //uint8_t data_rec[6]; 
-uint8_t data_rec[24]; 
+uint8_t data_rec[6]; 
 
 void adxl_read_address(uint8_t reg)
 {
@@ -27,7 +27,7 @@ void adxl_write(uint8_t reg , char value)
 
 void adxl_read_values(uint8_t reg)
 {
-	I2C1_burstRead (DEVICE_ADDR, reg, 24, (char*)data_rec);
+	I2C1_burstRead (DEVICE_ADDR, reg, 6, (char*)data_rec);
 }
 
 void adxl_init (void)
@@ -36,21 +36,21 @@ void adxl_init (void)
 	
 	 I2C1_init();
 	
-	/* Read the DEVID, this should return 0x68*/
+	/* Read the DEVID, this should return 0x53*/
 	
-	adxl_read_address(WHO_AM_I); 
+	adxl_read_address(DEVID_R); 
 	
 	/* Set the data format rate to +/- 4g*/
 	
-	adxl_write(ACCEL_CONFIG,FOUR_G); 
+	adxl_write(DATA_FORMAT_R,FOUR_G); 
 	
 	/* Reset all bits */
 	
-	adxl_write(PWR_MGMT_1,RESET); 
+	adxl_write(POWER_CTL_R,RESET); 
 	
 	/* Configure power control measure bit*/
 	
-	adxl_write(PWR_MGMT_1,SET_MEASURE_B); 
+	adxl_write(POWER_CTL_R,SET_MEASURE_B); 
 	
 	// 1. check if the sensor is responding by reading the “WHO_AM_I (0x75)” Register (Should retun 0x68)
 
@@ -58,10 +58,8 @@ void adxl_init (void)
 	
 	// 3. set the Data output Rate or Sample Rate. This can be done by writing into “SMPLRT_DIV (0x19)” Register
 	     //(to get the sample rate of 1KHz, we need to use the SMPLRT_DIV as ‘7’)
-	
-	
+		
 	// Writing (0x01) to both of these registers would set the Full scale range of ± 2g in ACCEL_CONFIG
 	
-
 	
 }

@@ -1,0 +1,13 @@
+Dependencies for Project 'modbus-rtu-slave', Target 'stm32f446re': (DO NOT MODIFY !)
+CompilerVersion: 6160000::V6.16::ARMCLANG
+F (.\main.c)(0x62B552EA)()
+F (.\uart.c)(0x62B550A3)()
+F (.\uart.h)(0x62B5509F)()
+F (C:\Users\A2012521\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Source\EventRecorder.c)(0x5B90236E)()
+F (C:\Users\A2012521\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Source\retarget_io.c)(0x584EFCAE)()
+F (RTE\Compiler\EventRecorderConf.h)(0x5E6FFBDC)()
+F (RTE\Device\STM32F446RETx\startup_stm32f446xx.s)(0x611193B0)()
+F (RTE\Device\STM32F446RETx\system_stm32f4xx.c)(0x611193B0)()
+F (C:\Users\A2012521\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.13.0\FileSystem\Lib\ARM\FS_Dbg_LFN_CM3_L.lib)(0x601B0356)()
+F (RTE\File_System\FS_Config.c)(0x5D111B38)()
+F (RTE\File_System\FS_Debug.c)(0x5D14EBC4)()

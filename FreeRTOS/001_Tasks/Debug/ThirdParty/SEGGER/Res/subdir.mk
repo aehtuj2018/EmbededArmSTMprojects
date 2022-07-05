@@ -1,0 +1,27 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../ThirdParty/SEGGER/Res/segger_uart.c 
+
+OBJS += \
+./ThirdParty/SEGGER/Res/segger_uart.o 
+
+C_DEPS += \
+./ThirdParty/SEGGER/Res/segger_uart.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+ThirdParty/SEGGER/Res/%.o ThirdParty/SEGGER/Res/%.su: ../ThirdParty/SEGGER/Res/%.c ThirdParty/SEGGER/Res/subdir.mk
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"C:/CodeLib/ARM-Cortex4-STMF4/EmbededArmSTMprojects/FreeRTOS/001_Tasks/ThirdParty/SEGGER/Config" -I"C:/CodeLib/ARM-Cortex4-STMF4/EmbededArmSTMprojects/FreeRTOS/001_Tasks/ThirdParty/SEGGER/OS" -I"C:/CodeLib/ARM-Cortex4-STMF4/EmbededArmSTMprojects/FreeRTOS/001_Tasks/ThirdParty/SEGGER/SEGGER" -I"C:/CodeLib/ARM-Cortex4-STMF4/EmbededArmSTMprojects/FreeRTOS/001_Tasks/ThirdParty/FreeRTOS" -I"C:/CodeLib/ARM-Cortex4-STMF4/EmbededArmSTMprojects/FreeRTOS/001_Tasks/ThirdParty/FreeRTOS/include" -I"C:/CodeLib/ARM-Cortex4-STMF4/EmbededArmSTMprojects/FreeRTOS/001_Tasks/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+
+clean: clean-ThirdParty-2f-SEGGER-2f-Res
+
+clean-ThirdParty-2f-SEGGER-2f-Res:
+	-$(RM) ./ThirdParty/SEGGER/Res/segger_uart.d ./ThirdParty/SEGGER/Res/segger_uart.o ./ThirdParty/SEGGER/Res/segger_uart.su
+
+.PHONY: clean-ThirdParty-2f-SEGGER-2f-Res
+

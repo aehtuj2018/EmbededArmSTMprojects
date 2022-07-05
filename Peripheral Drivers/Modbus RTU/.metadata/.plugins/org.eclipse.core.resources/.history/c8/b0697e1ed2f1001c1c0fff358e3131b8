@@ -1,0 +1,23 @@
+/*
+ * MB_Processor.h
+ *
+ *  Created on: Jun 20, 2022
+ *      Author: A2012521
+ */
+
+#ifndef INC_MB_PROCESSOR_H_
+#define INC_MB_PROCESSOR_H_
+
+unsigned char MY_SLAVE_ID;
+
+#define MaxFrameIndex 255u
+#define fc3_HoldingRegMax 125u
+#define fc3_HoldingRegOffset 40001u
+
+volatile unsigned char ResponseFrameSize;
+
+volatile unsigned char data_in[MaxFrameIndex+1];
+volatile unsigned int DataPos;
+
+
+#endif /* INC_MB_PROCESSOR_H_ */

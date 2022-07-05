@@ -66,16 +66,6 @@ void uart2_write(int ch);
 FILE __stdout;
 FILE __stdin;
 
-
-
-
-
-
-
-
-
-
-
 void uart2_rxtx_init()
 {
 	/********************* Configure UART GPIO PINs ****************/

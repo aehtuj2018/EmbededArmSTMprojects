@@ -52,12 +52,12 @@
 		GPIOB->MODER |=  (1U<<19);		
 		
 		
-		/* Set PB8 and PB9 output type to open drain */
+		/* Set PB8 and PB9 output type to open drain - I2C requires this  */
 		
 		GPIOB->OTYPER |=  (1U<<8); 
 		GPIOB->OTYPER |=  (1U<<9);
 
-		/* Enable pullup for PB8 and PB9*/	
+		/* Enable pullup for PB8 and PB9 - SDA,SCL should be pulled high */	
 
 	  GPIOB->PUPDR |=  (1U<<16);
   	GPIOB->PUPDR &= ~ (1U<<17); 
@@ -65,7 +65,7 @@
    	GPIOB->PUPDR |=  (1U<<18);
 		GPIOB->PUPDR &= ~ (1U<<19); 
 		
-		/* Set PB8 and PB9 altenet functyion type to I2C (AF4)*/
+		/* Set PB8 and PB9 Alternate functyion type to I2C (AF4)*/
 		
 		//PB8 
 		GPIOA->AFR[1]&=~(1U<<0);
@@ -103,12 +103,13 @@
 		/*Enable I2C1*/
 		
 		I2C1->CR1 |= CR1_PE; 
+		
 	}
 	
 	void I2C1_byteRead (char saddr, char maddr, char* data)
 	{
 	
-		volatile int temp; 
+		volatile int temp; 		
 		
 		/* wait until bus not busy */
 		while ((I2C1->SR2 & SR2_BUSY)){}
@@ -135,7 +136,7 @@
 			
 		 I2C1->DR = maddr; 
 					
-	 /* Wait until transmitter empty */
+	 /* Wait until transmiter empty */
 					
 			while (!(I2C1->SR1 & SR1_TXE)) {}
 					
@@ -303,6 +304,10 @@
 					/* Transmit Memory Address */
 					I2C1->DR = *data++; 
 			}
-		
-		while(!(I2C1->SR1 & (SR1_BTF))){}		
+		/* wait while byte transfer is finished */
+		while(!(I2C1->SR1 & (SR1_BTF))){}
+
+				/* Generate a stop condition */
+			
+			I2C1->CR1 |= CR1_STOP; 
 	}

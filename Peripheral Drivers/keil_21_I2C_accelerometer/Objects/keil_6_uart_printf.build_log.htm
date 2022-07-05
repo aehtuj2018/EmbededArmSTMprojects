@@ -22,33 +22,33 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 C:\CodeLib\ARM-Cortex4-STMF4\EmbededArmSTMprojects\Peripheral Drivers\keil_21_I2C_accelerometer\keil_21_I2C_accelerometer.uvprojx
-Project File Date:  05/26/2022
+Project File Date:  06/12/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'keil_21_I2C_accelerometer'
 assembling startup_stm32f446xx.s...
-main.c(19): warning: In file included from...
-./mpu6050.h(45): warning: no newline at end of file [-Wnewline-eof]
-void check_device(uint16_t sadd);
-                                 ^
-1 warning generated.
-compiling main.c...
 compiling gpio.c...
-mpu_6050.c(13): warning: In file included from...
-./mpu6050.h(45): warning: no newline at end of file [-Wnewline-eof]
-void check_device(uint16_t sadd);
-                                 ^
-mpu_6050.c(47): warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
-                printf("Device Found %x\r\n", data      ); 
-                ^
-mpu_6050.c(47): note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
-mpu_6050.c(79): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-3 warnings generated.
-compiling mpu_6050.c...
 compiling system_stm32f4xx.c...
+main.c(47): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+                printf("XG = %f , YG = %f , ZG = %f \n\r", xg,yg,zg);
+                ~~~~~~                                           ^~
+main.c(47): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+                printf("XG = %f , YG = %f , ZG = %f \n\r", xg,yg,zg);
+                ~~~~~~                                        ^~
+main.c(47): warning: implicit conversion increases floating-point precision: 'float' to 'double' [-Wdouble-promotion]
+                printf("XG = %f , YG = %f , ZG = %f \n\r", xg,yg,zg);
+                ~~~~~~                                     ^~
+3 warnings generated.
+compiling main.c...
+adxl345.c(16): warning: incompatible pointer types passing 'char **' to parameter of type 'char *'; remove & [-Wincompatible-pointer-types]
+        I2C1_byteRead(DEVICE_ADDR,reg,&data);
+                                      ^~~~~
+./i2c.h(16): note: passing argument to parameter 'data' here
+void I2C1_byteRead (char sadd, char maddr, char* data);
+                                                 ^
+1 warning generated.
+compiling adxl345.c...
 uart.c(50): warning: unused parameter 'stream' [-Wunused-parameter]
 int fputc(int ch , FILE * stream)
                           ^
@@ -56,7 +56,7 @@ int fputc(int ch , FILE * stream)
 compiling uart.c...
 compiling i2c.c...
 linking...
-Program Size: Code=1952 RO-data=508 RW-data=0 ZI-data=1728  
+Program Size: Code=6524 RO-data=644 RW-data=0 ZI-data=1728  
 ".\Objects\keil_6_uart_printf.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -84,11 +84,11 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:2.6.3
       Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
-      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f446xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

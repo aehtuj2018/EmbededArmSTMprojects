@@ -28,6 +28,7 @@
 
 
 #define CR1_RXNEIE 							(1U<<5)
+#define CR1_TXEIE								(1U<<7)
 
 
 static void uart_set_baudrate(USART_TypeDef *, uint32_t  , uint32_t );
@@ -186,6 +187,7 @@ void uart2_rx_interrupt_init()
 	USART2->CR1 |= ( CR1_TE | CR1_RE) ;
 	
 	/*Enbable RXNE interrupt */
+	USART2->CR1 |= CR1_TXEIE;
 	USART2->CR1 |= CR1_RXNEIE; 
 	
 	/* Enable UART2 Interupt in NVIC*/

@@ -25,7 +25,7 @@ int main (void)
 {
 
 	gpio_init(); 
-	uart2_rxtx_init();
+	//uart2_rxtx_init();
 	
 	uart2_rx_interrupt_init(); 
 
@@ -38,6 +38,11 @@ static void uart_callback()
 {
 	key = (char) USART2->DR;
 		
+	
+	printf("You have enetered ... %c \n\r",key); 
+	
+	// printf("LED ON ... %c \n\r",key); 
+	
 		if(key=='o' || key =='O')
 		{
 			printf("LED ON ... \n\r"); 

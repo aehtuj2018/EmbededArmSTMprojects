@@ -1,0 +1,5 @@
+1649344572300	Delete resource '001_Tasks/Core/Src/gpio.c'
+1649344577483	Delete resource '001_Tasks/Core/Src/gpio.h'
+1649344582089	Delete resource '001_Tasks/Core/Src/uart.c'
+1649344585831	Delete resource '001_Tasks/Core/Src/uart.h'
+1649431510207	Delete resource '001_Tasks/ThirdParty/SEGGER/SystemView_Src_V320'

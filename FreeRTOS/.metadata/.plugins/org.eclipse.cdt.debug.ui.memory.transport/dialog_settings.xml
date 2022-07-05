@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="EXPORT_DIALOG">
+		<item key="Start" value="0x200133e4"/>
+		<item key="End" value="0x200143e3"/>
+		<item key="Initial address" value="0x200133e4"/>
+		<item key="File" value="C:\CodeLib\Segger\Mem_Dumps\001_Tasks_Coop2.SVdat"/>
+		<item key="SELECTED_EXPORTER" value="rawbinary"/>
+	</section>
+</section>

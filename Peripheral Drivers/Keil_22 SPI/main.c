@@ -25,10 +25,11 @@ int main(void)
 	y = (int16_t) ((datarec[3]<<8)| datarec[2]);
 	z = (int16_t) ((datarec[5]<<8)| datarec[4]);
 	
-	xg = (x * 0.0078);
+	
 	yg = (y * 0.0078);
 	zg = (z * 0.0078);
-	
+	xg = (x * 0.0078);
+		
 	printf("xg %f\n\r",xg);
 	printf("yg %f\n\r",yg);
 	printf("zg %f\n\r",zg);
