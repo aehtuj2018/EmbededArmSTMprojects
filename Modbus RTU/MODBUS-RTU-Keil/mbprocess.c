@@ -12,9 +12,10 @@
 
 
 
-
+ unsigned char MY_SLAVE_ID;
  volatile unsigned char ResponseFrameSize;
-
+ volatile unsigned TotalCharReceived;
+ 
  volatile unsigned char data_in[MaxFrameIndex+1];
  volatile unsigned int DataPos;
 
@@ -26,6 +27,8 @@ void AppendDatatoMBRegister(unsigned int StAddr,unsigned int count, unsigned int
 void AppendCRCtoMBRegister(unsigned char packtop);
 void MBSendData(unsigned char count);
 void MBException(unsigned char exceptionCode);
+void CheckMBPDU(void);
+
 
 void MBSendData(unsigned char count)	//Send final data over UART
 {
@@ -183,3 +186,63 @@ void AppendBitsToRegisters(unsigned int StAddr, unsigned int count, unsigned cha
 	}
 }
 
+void CheckMBPDU()	
+{
+	unsigned int CharCount = 0;
+	CharCount = TotalCharReceived;
+	TotalCharReceived=0;	
+	MY_SLAVE_ID	=	17u;
+	
+	unsigned int HoldingRegSize = (sizeof(HoldingRegisters)/sizeof(HoldingRegisters[0])); 
+	unsigned int InputRegisterSize = (sizeof(InputRegisters)/sizeof(InputRegisters[0]));
+	unsigned int DiscreteInputsSize = (sizeof(DiscreteInputs)/sizeof(DiscreteInputs[0])); 	
+	unsigned int CoilsSize = (sizeof(Coils)/sizeof(Coils[0])); 
+
+			if((CharCount>=4u) & ((data_in[0]==MY_SLAVE_ID)))
+		  {
+				// check inbound frame CRC 
+				unsigned int crcvalue = CRC16(data_in,(CharCount - 2));
+				if((data_in[CharCount - 2]== (unsigned char)(crcvalue)) & (data_in[CharCount-1] == (unsigned char)(crcvalue>>8)))
+				{
+				CharCount = 0;
+				DataPos=0;
+			//STEP 2: Check function code
+			switch(data_in[1])
+			{
+				case 0x01:
+				{
+					//checking if requested register count fits in data buffer (256 size - 6)
+					//MBProcessRegisters(data_in[1]);
+					MBProcessBits(Coils,CoilsSize);
+				}
+				case 0x02:
+				{
+					//checking if requested register count fits in data buffer (256 size - 6)
+					//MBProcessRegisters(data_in[1]);
+					MBProcessBits(DiscreteInputs,DiscreteInputsSize);
+				}
+				break;
+				case 0x03:
+				{
+					//checking if requested register count fits in data buffer (256 size - 6)
+					//MBProcessRegisters(data_in[1]);
+					MBProcessRegisters(HoldingRegisters,HoldingRegSize);
+				}
+				break;
+				case 0x04:
+				{
+					//checking if requested register count fits in data buffer (256 size - 6)
+					//MBProcessRegisters(data_in[1]);
+					MBProcessRegisters(InputRegisters,InputRegisterSize);
+				}
+				break;
+				default:
+				{
+					MBException(0x01); //Illegal function code 01
+					MBSendData(ResponseFrameSize);
+				}
+				break;
+			}
+		  }
+		}
+}

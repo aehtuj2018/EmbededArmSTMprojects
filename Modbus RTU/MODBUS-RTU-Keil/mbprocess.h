@@ -15,6 +15,7 @@
  extern volatile unsigned char data_in[MaxFrameIndex+1];
  extern volatile unsigned int DataPos;
 
+void CheckMBPDU(void);
 void AppendBitsToRegisters(unsigned int StAddr, unsigned int count, unsigned char *inreg, volatile unsigned char *outreg);
 void AppendBitsToRegisters(unsigned int StAddr, unsigned int count, unsigned char *inreg, volatile unsigned char *outreg);
 void MBProcessRegisters(unsigned int *InArr, unsigned int InArrSize);
