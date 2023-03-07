@@ -29,8 +29,8 @@ Project File Date:  07/04/2022
 Rebuild target 'stm32f446re'
 compiling crc.c...
 compiling timer.c...
-assembling startup_stm32f446xx.s...
 compiling system_stm32f4xx.c...
+assembling startup_stm32f446xx.s...
 uart.c(27): warning: unused parameter 'stream' [-Wunused-parameter]
                 int fputc(int ch , FILE * stream)
                                           ^
@@ -697,7 +697,7 @@ mbprocess.c(17): note: declare 'static' if the variable is not intended to be us
 110 warnings generated.
 compiling mbprocess.c...
 linking...
-Program Size: Code=1872 RO-data=996 RW-data=900 ZI-data=1904  
+Program Size: Code=1852 RO-data=996 RW-data=900 ZI-data=1904  
 ".\Objects\modbus-rtu-keil.axf" - 0 Error(s), 213 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -724,12 +724,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.6.3
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
       Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
-      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f446xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

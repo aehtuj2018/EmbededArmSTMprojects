@@ -22,12 +22,12 @@ void TIM7_IRQHandler (void);
 int main (void)
 {
 	tim_6_7_1mhz_init();
-	uart2_rxtx_init();
+	//uart2_rxtx_init();
 //	USART2->CR1 |= USART2_TXEIE;
-//	usart2_init();	
+ 	usart2_init();	
 	while(1)
 	{
-		
+	__NOP(); 
 	}
 	
 // return 0;

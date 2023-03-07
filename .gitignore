@@ -1,0 +1,6 @@
+.mcuxpressoide_packages_support
+.metadata
+Release
+*.launch
+*.jlink
+*.bak

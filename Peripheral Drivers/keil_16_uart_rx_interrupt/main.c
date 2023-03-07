@@ -25,9 +25,9 @@ int main (void)
 {
 
 	gpio_init(); 
-	//uart2_rxtx_init();
+	uart2_rxtx_init();
 	
-	uart2_rx_interrupt_init(); 
+	//uart2_rx_interrupt_init(); 
 
 	while(1)
 	{

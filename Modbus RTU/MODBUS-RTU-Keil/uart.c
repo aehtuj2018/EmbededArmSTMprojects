@@ -78,11 +78,11 @@
 		USART2->CR1 &= ~USART2_M;
 		
 		 //enable RXNE and TXE interrupts on USART SIDE
-		//USART2->CR1 |= USART_CR1_RXNEIE | USART_CR1_TXEIE;
+		USART2->CR1 |= USART_CR1_RXNEIE | USART_CR1_TXEIE;
 		
 		//USART2->CR1 |= USART2_TXEIE; // Transmit Interrupt
 		//USART2->CR1 |= USART2_TCIE; // Transmit Complete Intterupt
-		USART2->CR1 |= USART2_RXNEIE;
+		//USART2->CR1 |= USART2_RXNEIE;
 		USART2->CR1 |= USART2_TE;
 		USART2->CR1 |= USART2_RE;
 
@@ -97,13 +97,17 @@
 
 		/* USART2 Enable */
 		USART2->CR1 |= USART2EN;
-		
+		__NOP(); 
+		__NOP();
+		__NOP();
+		__NOP();
 		}
 
 
 
 		void usart2_init(void)		
 		{
+							
 		/* Enable Clock to GPIOA */ 
 
 		RCC->AHB1ENR  |= GPIOAEN; 
@@ -119,19 +123,22 @@
 		GPIOA->MODER &= ~(1U<<6);
 
 
-		/* Alternet function PA2 - USART2 - AF7 */
-		/* 0111: AF7 -> PA2 */
+		/*Set PA2 Alternate function type to UART_TX (AF07) */
+		// AFRL - index 0 , AFRH - index 1, USART1_TX function is AF07
+
 		GPIOA->AFR[0] &= ~(1U<<11);
-		GPIOA->AFR[0] |=  (1U<<10);
-		GPIOA->AFR[0] |=  (1U<<9);
-		GPIOA->AFR[0] |=  (1U<<8);
+		GPIOA->AFR[0] |= (1U<<10);
+		GPIOA->AFR[0] |= (1U<<9);
+		GPIOA->AFR[0] |= (1U<<8); 
 
+			/*Set PA3 Alternate function type to UART_TX (AF07) */
+		// AFRL - index 0 , AFRH - index 1, USART1_TX function is AF07
 
-		/* 0111: AF7 -> PA3 */
 		GPIOA->AFR[0] &= ~(1U<<15);
-		GPIOA->AFR[0] |=  (1U<<14);
-		GPIOA->AFR[0] |=  (1U<<13);
-		GPIOA->AFR[0] |=  (1U<<12);
+		GPIOA->AFR[0] |= (1U<<14);
+		GPIOA->AFR[0] |= (1U<<13);
+		GPIOA->AFR[0] |= (1U<<12); 
+
 
 		/* configure UART Module */
 
@@ -147,7 +154,7 @@
 		USART2->CR1 &= ~USART2_M;
 		//USART2->CR1 |= USART2_TXEIE; // Transmit Interrupt
 		//USART2->CR1 |= USART2_TCIE; // Transmit Complete Intterupt
-		USART2->CR1 |= USART2_RXNEIE;
+		//USART2->CR1 |= USART2_RXNEIE;
 		USART2->CR1 |= USART2_TE;
 		USART2->CR1 |= USART2_RE;
 
@@ -161,8 +168,9 @@
 		 
 		 /* Enable receive interrupt*/
 		 USART2->CR1 |= CR1_RXNEIE;
+		 
 
-		 NVIC_EnableIRQ(USART2_IRQn);
+	//	 NVIC_EnableIRQ(USART2_IRQn);
 
 		/* USART2 Enable */
 		USART2->CR1 |= USART2EN;

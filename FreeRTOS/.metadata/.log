@@ -158,3 +158,22 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/C:/CodeLib
 
 !ENTRY org.eclipse.core.resources 4 566 2022-08-26 16:06:36.610
 !MESSAGE Workspace was not properly initialized or has already shutdown.
+!SESSION 2022-09-22 19:27:47.742 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\e2012521\Downloads\CH03_ModbusRTUSlave (1)\CHAPTER 03\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\e2012521\Downloads\CH03_ModbusRTUSlave (1)\CHAPTER 03\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-09-22 19:28:19.342
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-09-22 19:28:19.432
+!MESSAGE Log4j initialized with config file C:\CodeLib\ARM-Cortex4-STMF4\EmbededArmSTMprojects\FreeRTOS\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-09-22 19:28:26.852
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-09-22 19:28:32.467
+!MESSAGE Indexed 'CH03_ModbusRTUSlave' (25 sources, 102 headers) in 2.94 sec: 8,770 declarations; 43,904 references; 2 unresolved inclusions; 26 syntax errors; 145 unresolved names (0.27%)
